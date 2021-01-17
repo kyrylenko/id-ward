@@ -1,9 +1,9 @@
 .footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
 }
-
+/* 
 .modal {
   background-color: #fff;
   z-index: 1000;
@@ -20,17 +20,6 @@
   align-items: stretch;
 
   border: 1px solid black;
-  /* overflow: scroll; */
-  /*     transition: opacity 1000ms ${animation.easing};
-    -webkit-overflow-scrolling: touch; */
-  /* Transitions */
-  /* &.overlay-enter-done {
-      opacity: 1;
-    }
-    &.overlay-exit,
-    &.overlay-enter {
-      opacity: 0;
-    } */
 }
 
 @media (max-width: 576px) {
@@ -40,18 +29,6 @@
 }
 
 #backdrop {
-  /* position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    outline: 0;
-    display: block;
-    padding-right: 16px; */
   position: fixed;
   padding: 0;
   margin: 0;
@@ -61,3 +38,4 @@
   height: 100%;
   z-index: 999;
 }
+ */

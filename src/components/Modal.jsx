@@ -11,10 +11,20 @@ function lockScroll(lock) {
 const AcceptView = ({ onAccept, onReject }) => {
   return (
     <>
-      <div>Would you like to track the analytics?</div>
+      <p>Would you like to track the analytics?</p>
       <div className="footer">
-        <button onClick={onAccept}>Accept</button>
-        <button onClick={onReject}>Reject</button>
+        <button
+          className="w3-button w3-padding-large w3-red w3-margin-bottom"
+          onClick={onReject}
+        >
+          Reject
+        </button>
+        <button
+          className="w3-button w3-padding-large w3-red w3-margin-bottom"
+          onClick={onAccept}
+        >
+          Accept
+        </button>
       </div>
     </>
   );
@@ -23,9 +33,14 @@ const AcceptView = ({ onAccept, onReject }) => {
 const RejectView = ({ onClose }) => {
   return (
     <>
-      <div>Analytics has been rejected</div>
+      <p>Analytics has been rejected</p>
       <div className="footer">
-        <button onClick={onClose}>Close</button>
+        <button
+          className="w3-button w3-padding-large w3-red w3-margin-bottom"
+          onClick={onClose}
+        >
+          Close
+        </button>
       </div>
     </>
   );
@@ -46,14 +61,23 @@ const Modal = ({ show, title, onAccept, onClose }) => {
   };
 
   return show ? (
-    <div id="backdrop">
-      <div className="modal">
-        <h2>{title}</h2>
-        {rejected ? (
-          <RejectView onClose={onClose} />
-        ) : (
-          <AcceptView onAccept={onAccept} onReject={rejectHandler} />
-        )}
+    <div className="w3-modal" style={{ display: "block" }}>
+      <div className="w3-modal-content w3-animate-zoom">
+        <div className="w3-container w3-white w3-center">
+          {rejected && (
+            <i
+              className="fa fa-remove w3-right w3-button w3-transparent w3-large"
+              title="Close"
+              onClick={onClose}
+            ></i>
+          )}
+          <h2 className="w3-wide">{title}</h2>
+          {rejected ? (
+            <RejectView onClose={onClose} />
+          ) : (
+            <AcceptView onAccept={onAccept} onReject={rejectHandler} />
+          )}
+        </div>
       </div>
     </div>
   ) : null;
