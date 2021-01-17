@@ -64,13 +64,12 @@ const Modal = ({ show, title, onAccept, onClose }) => {
     <div className="w3-modal" style={{ display: "block" }}>
       <div className="w3-modal-content w3-animate-zoom">
         <div className="w3-container w3-white w3-center">
-          {rejected && (
-            <i
-              className="fa fa-remove w3-right w3-button w3-transparent w3-large"
-              title="Close"
-              onClick={onClose}
-            ></i>
-          )}
+          <i
+            className="fa fa-remove w3-right w3-button w3-transparent w3-large"
+            title="Close"
+            onClick={onClose}
+            style={{ visibility: rejected ? "visible" : "hidden" }}
+          ></i>
           <h2 className="w3-wide">{title}</h2>
           {rejected ? (
             <RejectView onClose={onClose} />
