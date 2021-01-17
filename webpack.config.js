@@ -1,12 +1,9 @@
 const path = require('path');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-//const webpack = require('webpack');
 const APP_DIR = path.resolve(__dirname, 'src');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 const config = {
-    mode: 'development',
+    mode: 'production',
     entry: APP_DIR + '/index.js',
     devServer: {
         contentBase: PUBLIC_DIR,
@@ -17,7 +14,6 @@ const config = {
         path: PUBLIC_DIR,
         filename: 'build/bundle.js'
     },
-    //devtool: 'source-map',
     devtool: 'inline-source-map',
     module: {
         rules: [
@@ -28,11 +24,6 @@ const config = {
                 options: {
                     presets: [
                         '@babel/preset-react',
-                        ["@babel/preset-env", {
-                            'targets': {
-                                'browsers': ['last 2 versions']
-                            }
-                        }],
                     ]
                 }
             },
@@ -45,14 +36,5 @@ const config = {
     resolve: {
         extensions: [".js", ".jsx"]
     },
-    /* plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [PUBLIC_DIR],
-            verbose: true,
-        }),
-        new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
-    ] */
 };
 module.exports = config;
