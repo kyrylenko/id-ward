@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Modal from "./components/Modal";
 
 const App = () => {
-  const [open, setOpen] = useState(true);
+  const [show, setShow] = useState(true);
 
   const handleClose = () => {
-    setOpen(false);
+    setShow(false);
   };
 
   return (
     <Modal
-      show={open}
+      show={show}
       title="CMP"
       onAccept={handleClose}
       onClose={handleClose}
